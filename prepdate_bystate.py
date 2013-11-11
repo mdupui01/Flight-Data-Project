@@ -27,9 +27,9 @@ base["LateAircraftDel"] = 0
 base.__delitem__("Code")
 base.__delitem__("Description")
 
-years = range(2013,2014)
+years = range(2000,2013)
 months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-months = ['01', '02', '03', '04', '05', '06', '07', '08']
+#months = ['01', '02', '03', '04', '05', '06', '07', '08']
 
 def extract_info():
     '''
@@ -47,18 +47,18 @@ def extract_info():
             data.ix[:, 'SECURITY_DELAY'][data.ix[:, 'SECURITY_DELAY'] > 0] = 1
             data.ix[:, 'LATE_AIRCRAFT_DELAY'][data.ix[:, 'LATE_AIRCRAFT_DELAY'] > 0] = 1
             
-            tempNumFlights = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(NumFlights=(x.NumFlights.sum()))))
-            carrierDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(CARRIER_DELAY=(x.CARRIER_DELAY.sum()))))
-            weatherDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(WEATHER_DELAY=(x.WEATHER_DELAY.sum()))))
-            nasDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(NAS_DELAY=(x.NAS_DELAY.sum()))))
-            securityDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(SECURITY_DELAY=(x.SECURITY_DELAY.sum()))))
-            lateAircraftDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(LATE_AIRCRAFT_DELAY=(x.LATE_AIRCRAFT_DELAY.sum()))))
-            output = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(Delays=(x.DEP_DEL15.sum()))))
+            tempNumFlights = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(NumFlights=(x.NumFlights.sum()))))
+            carrierDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(CARRIER_DELAY=(x.CARRIER_DELAY.sum()))))
+            weatherDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(WEATHER_DELAY=(x.WEATHER_DELAY.sum()))))
+            nasDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(NAS_DELAY=(x.NAS_DELAY.sum()))))
+            securityDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(SECURITY_DELAY=(x.SECURITY_DELAY.sum()))))
+            lateAircraftDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(LATE_AIRCRAFT_DELAY=(x.LATE_AIRCRAFT_DELAY.sum()))))
+            output = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(Delays=(x.DEP_DEL15.sum()))))
             
             output["Year"] = year
             output["Month"] = int(month)
             output["NumFlights"] = tempNumFlights
-            output["CarrierID"] = output.index
+            output["DepState"] = output.index
             output["CarrierDel"] = carrierDel
             output["WeatherDel"] = weatherDel
             output["NASDel"] = nasDel
@@ -77,7 +77,6 @@ delaysOutput = next(delays)
 print base[:10]
 print delaysOutput
 
-delaysOutput.to_csv('output1.csv', sep=',')
+delaysOutput.to_csv('00-12_bystate.csv', sep=',')
 
 print "Script ended."
-
