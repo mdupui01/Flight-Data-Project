@@ -27,7 +27,7 @@ base["LateAircraftDel"] = 0
 base.__delitem__("Code")
 base.__delitem__("Description")
 
-years = range(2000,20014)
+years = range(2000,2013)
 months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 
 def extract_info():
