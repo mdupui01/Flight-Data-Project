@@ -30,12 +30,14 @@ rownames(delays) <- 1:nrow(delays)
 delays$states <- as.character(delays$states)
 delays$states <- factor(delays$states, levels=unique(delays$states), ordered=TRUE)
 r <- ggplot(delays, aes(x = delays$states, delaysByState))
-r <- r + geom_bar(stat = "identity")
+r <- r + geom_bar(stat = "identity") + theme(axis.text.x=element_text(size = 10, hjust=1)) + scale_y_continuous(labels=comma)
+r <- r + xlab("States") + ylab("Number of Delayed Flights") + labs(title = "Number of Delayed Flights by State from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
+
 
 # Lets now look at the delays per flight to see if it balances out the distribution
 
-d <- ggplot(delays, aes(x = delays$states, delaysPerFlight))
-d <- d + geom_bar(stat = "identity") + geom_hline(yintercept = mean(delays$delaysPerFlight), color = "red")
+z <- ggplot(delays, aes(x = delays$states, delaysPerFlight))
+z <- z + geom_bar(stat = "identity") + geom_hline(yintercept = mean(delays$delaysPerFlight), color = "red")
 
 
 # Creating a heatmap of the US for number of delays
