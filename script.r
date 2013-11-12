@@ -44,22 +44,49 @@ f <- ggplot(data = plotData, aes(x = Period, y = value, color = variable)) + geo
 i <- 1
 numFlightsMonth = list()
 numDelaysMonth = list()
+numCancelsMonth = list()
 for (month in 1:12){
   tempdf <- subset(data, Month == month)
   numFlightsMonth[i] = sum(tempdf$NumFlights)
   numDelaysMonth[i] = sum(tempdf$Delays)
+  numCancelsMonth[i] = sum(tempdf$Cancelled)
   i = i + 1
 }
 numFlightsMonth <- as.numeric(unlist(numFlightsMonth))
 numDelaysMonth <- as.numeric(unlist(numDelaysMonth))
+numCancelsMonth <- as.numeric(unlist(numCancelsMonth))
 
-monthlyData <- cbind(seq(as.Date("2000-01-01"), as.Date("2000-12-01"), by="month"), numFlightsMonth, numDelaysMonth)
-colnames(monthlyData) <- c("Month", "numFlights", "numDelays")
+monthlyData <- cbind(seq(as.Date("2000-01-01"), as.Date("2000-12-01"), by="month"), numFlightsMonth, numDelaysMonth, numCancelsMonth)
+colnames(monthlyData) <- c("Month", "numFlights", "numDelays", "numCancels")
 monthlyData <- data.frame(monthlyData)
-monthlyData$onTime <- monthlyData$numFlights - monthlyData$numDelays
+monthlyData$onTime <- monthlyData$numFlights - monthlyData$numDelays - monthlyData$numCancels
 monthlyData$Month <- seq(as.Date("2000-01-01"), as.Date("2000-12-01"), by = "month")
 
-monthlyData.m <- melt(monthlyData,id.vars='Month',measure.vars=c('numDelays','onTime'))
+monthlyData.m <- melt(monthlyData,id.vars='Month',measure.vars=c('numDelays', 'numCancels', 'onTime'))
 
 c <- ggplot(monthlyData.m) + geom_bar(aes(Month,value,fill=variable), stat = "identity") + scale_y_continuous(labels = comma) + theme_bw()
+
+# The information in the previous graph on the number of delays and cancellations per month isn't particularly interesting if it's not expressed as a percentage.
+
+monthlyData_norm <- monthlyData
+monthlyData_norm$numDelays <- monthlyData$numDelays / monthlyData$numFlights
+monthlyData_norm$numCancels <- monthlyData$numCancels / monthlyData$numFlights
+monthlyData_norm$numFlights <- monthlyData$numFlights / monthlyData$numFlights
+
+monthlyData_norm$onTime <- monthlyData_norm$numFlights - monthlyData_norm$numDelays - monthlyData_norm$numCancels
+
+monthlyData.m_norm <- melt(monthlyData_norm,id.vars='Month',measure.vars=c('numDelays', 'numCancels', 'onTime'))
+
+q <- ggplot(monthlyData.m_norm) + geom_bar(aes(Month,value,fill=variable), stat = "identity") + scale_y_continuous(labels = comma) + theme_bw()
+
+# Now we want to look at the causes for delay
+
+tempdf <- subset(data, Year > 2004)
+tempdf <- subset(tempdf, select = -c(CarrierID))
+pieData <- colSums(tempdf)
+pieData <- pieData[-c(1, 2, 4, 6, 8, 11)]
+
+slices <- pieData
+lbls <- c("Carrier", "Late Aircraft", "NAS", "Security", "Weather")
+pie(slices, labels = lbls, main="Pie Chart of Countries")
 
