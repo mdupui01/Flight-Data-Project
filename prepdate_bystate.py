@@ -27,9 +27,9 @@ base["LateAircraftDel"] = 0
 base.__delitem__("Code")
 base.__delitem__("Description")
 
-years = range(2000,2013)
+years = range(2013,2014)
 months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-#months = ['01', '02', '03', '04', '05', '06', '07', '08']
+months = ['01', '02', '03', '04', '05', '06', '07', '08']
 
 def extract_info():
     '''
@@ -53,12 +53,14 @@ def extract_info():
             nasDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(NAS_DELAY=(x.NAS_DELAY.sum()))))
             securityDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(SECURITY_DELAY=(x.SECURITY_DELAY.sum()))))
             lateAircraftDel = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(LATE_AIRCRAFT_DELAY=(x.LATE_AIRCRAFT_DELAY.sum()))))
+            cancelled = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(CANCELLED=(x.CANCELLED.sum()))))
             output = data.groupby('ORIGIN_STATE_ABR').apply(lambda x: pd.Series(dict(Delays=(x.DEP_DEL15.sum()))))
             
             output["Year"] = year
             output["Month"] = int(month)
             output["NumFlights"] = tempNumFlights
             output["DepState"] = output.index
+            output["Cancelled"] = cancelled
             output["CarrierDel"] = carrierDel
             output["WeatherDel"] = weatherDel
             output["NASDel"] = nasDel
@@ -75,8 +77,8 @@ delays = extract_info()
 delaysOutput = next(delays)
 
 print base[:10]
-print delaysOutput
+print delaysOutput[:20]
 
-delaysOutput.to_csv('00-12_bystate.csv', sep=',')
+delaysOutput.to_csv('13_byState.csv', sep=',')
 
 print "Script ended."

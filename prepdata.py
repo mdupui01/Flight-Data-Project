@@ -27,15 +27,15 @@ base["LateAircraftDel"] = 0
 base.__delitem__("Code")
 base.__delitem__("Description")
 
-years = range(2013,2014)
+years = range(2000,2013)
 months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-months = ['01', '02', '03', '04', '05', '06', '07', '08']
+#months = ['01', '02', '03', '04', '05', '06', '07', '08']
 
 def extract_info():
     '''
     This generator loads the data from each month and retrieves the relevant information about flights and delays for each carrier.
     '''
-    genOutput = pd.DataFrame({'CarrierID': [], 'Delays': [], 'Year': [], 'Month': [], 'NumFlights': [], 'CarrierDel': [], 'WeatherDel': [], 'NASDel': [], 'SecurityDel': [], 'LateAircraftDel': []})
+    genOutput = pd.DataFrame({'CarrierID': [], 'Delays': [], 'Year': [], 'Month': [], 'NumFlights': [], 'CarrierDel': [], 'WeatherDel': [], 'NASDel': [], 'SecurityDel': [], 'LateAircraftDel': [], 'Cancelled': []})
     for year in years:
         for month in months:
             files = 'data' + str(year) + '-' + str(month) + '.csv'
@@ -53,12 +53,14 @@ def extract_info():
             nasDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(NAS_DELAY=(x.NAS_DELAY.sum()))))
             securityDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(SECURITY_DELAY=(x.SECURITY_DELAY.sum()))))
             lateAircraftDel = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(LATE_AIRCRAFT_DELAY=(x.LATE_AIRCRAFT_DELAY.sum()))))
+            cancelled = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(CANCELLED=(x.CANCELLED.sum()))))
             output = data.groupby('UNIQUE_CARRIER').apply(lambda x: pd.Series(dict(Delays=(x.DEP_DEL15.sum()))))
             
             output["Year"] = year
             output["Month"] = int(month)
             output["NumFlights"] = tempNumFlights
             output["CarrierID"] = output.index
+            output["Cancelled"] = cancelled
             output["CarrierDel"] = carrierDel
             output["WeatherDel"] = weatherDel
             output["NASDel"] = nasDel
@@ -77,7 +79,7 @@ delaysOutput = next(delays)
 print base[:10]
 print delaysOutput
 
-delaysOutput.to_csv('output1.csv', sep=',')
+delaysOutput.to_csv('00-12_byCarrier.csv', sep=',')
 
 print "Script ended."
 

@@ -6,8 +6,8 @@ filepath = '/Users/mfdupuis/Documents/Kaggle/Python/Flight-Data-Project/'
 os.chdir(filepath)
 
 # Important the csv files created in prepdata.py
-bycarrier1 = pd.read_csv('00-12_bycarrier.csv')
-bycarrier2 = pd.read_csv('13_bycarrier.csv')
+bycarrier1 = pd.read_csv('00-12_byCarrier.csv')
+bycarrier2 = pd.read_csv('13_byCarrier.csv')
 
 pieces = [bycarrier1, bycarrier2]
 bycarrier_output = pd.concat(pieces, ignore_index = True)
@@ -30,6 +30,20 @@ for index, ID in enumerate(bycarrier_output["CarrierID"]):
     else:
         pass
 
-print bycarrier_output[:50]
 bycarrier_output.to_csv('byCarrier.csv', sep=',')
+
+
+# Combining the csv by state
+
+bystate1 = pd.read_csv('00-12_byState.csv')
+bystate2 = pd.read_csv('13_byState.csv')
+
+pieces = [bystate1, bystate2]
+bystate_output = pd.concat(pieces, ignore_index = True)
+
+bystate_output.__delitem__("Unnamed: 0")
+
+print bystate_output[-20:]
+
+bystate_output.to_csv('byState.csv', sep=',')
 
