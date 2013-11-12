@@ -88,5 +88,42 @@ pieData <- pieData[-c(1, 2, 4, 6, 8, 11)]
 
 slices <- pieData
 lbls <- c("Carrier", "Late Aircraft", "NAS", "Security", "Weather")
-pie(slices, labels = lbls, main="Pie Chart of Countries")
+pie(slices, labels = lbls, main="Causes of Delay")
 
+
+# Finally, lets look at the delays by carrier
+
+carriers <- levels(data$CarrierID)
+
+i <- 1
+delaysByCarrier = list()
+flightsByCarrier = list()
+cancelsByCarrier = list()
+for (carrier in carriers){
+  tempdf <- subset(data, CarrierID == carrier & Year > 2004)
+  delaysByCarrier[i] = sum(tempdf$Delays)
+  flightsByCarrier[i] = sum(tempdf$NumFlights)
+  cancelsByCarrier[i] = sum(tempdf$Cancelled)
+  i = i + 1
+}
+
+delaysByCarrier <- as.numeric(delaysByCarrier)
+flightsByCarrier <- as.numeric(flightsByCarrier)
+cancelsByCarrier <- as.numeric(cancelsByCarrier)
+
+carrierData <- data.frame(carriers, flightsByCarrier, delaysByCarrier, cancelsByCarrier, stringsAsFactors = FALSE)
+carrierData <- carrierData[order(-carrierData[,3]),]
+rownames(carrierData) <- 1:nrow(carrierData)
+
+carrierData$carriers <- as.character(carrierData$carriers)
+carrierData$carriers <- factor(carrierData$carriers, levels=unique(carrierData$carriers), ordered=TRUE)
+carrierData <- carrierData[-24,]
+m <- ggplot(carrierData, aes(x = carrierData$carriers, delaysByCarrier))
+m <- m + geom_bar(stat = "identity") + scale_y_continuous(labels=comma) + theme(axis.text.x=element_text(angle=90, hjust=1))
+
+# Again, lets look at the same data in terms of frequency per flight to put all airlines on the same playing field
+
+carrierData$normDelays <- carrierData$delaysByCarrier / carrierData$flightsByCarrier
+
+n <- ggplot(carrierData, aes(x = carrierData$carriers, normDelays))
+n <- n + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=90, hjust=1)) + scale_y_continuous(labels=comma) + geom_hline(yintercept = mean(carrierData$normDelays), color = "red")

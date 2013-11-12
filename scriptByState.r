@@ -29,8 +29,8 @@ rownames(delays) <- 1:nrow(delays)
 
 delays$states <- as.character(delays$states)
 delays$states <- factor(delays$states, levels=unique(delays$states), ordered=TRUE)
-c <- ggplot(delays, aes(x = delays$states, delaysByState))
-c <- c + geom_bar(stat = "identity")
+r <- ggplot(delays, aes(x = delays$states, delaysByState))
+r <- r + geom_bar(stat = "identity")
 
 # Lets now look at the delays per flight to see if it balances out the distribution
 
