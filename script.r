@@ -68,7 +68,7 @@ monthlyData.m <- melt(monthlyData,id.vars='Month',measure.vars=c('Delayed', 'Can
 colnames(monthlyData.m) <- c("Month", "Status", "Value")
 
 c <- ggplot(monthlyData.m) + geom_bar(aes(Month,Value,fill=Status), stat = "identity") + scale_y_continuous(labels = comma) + theme_bw()
-c <- c + xlab("Month") + ylab("Number of Flights") + labs(title = "Number of Flights by Month from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
+c <- c + xlab("Month") + ylab("Number of Flights") + labs(title = "Number of Flights by Month from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
 
 # The information in the previous graph on the number of delays and cancellations per month isn't particularly interesting if it's not expressed as a percentage.
 
@@ -83,7 +83,7 @@ monthlyData.m_norm <- melt(monthlyData_norm,id.vars='Month',measure.vars=c('Dela
 colnames(monthlyData.m_norm) <- c("Month", "Status", "Value")
 
 q <- ggplot(monthlyData.m_norm) + geom_bar(aes(Month,Value,fill=Status), stat = "identity") + scale_y_continuous(labels = comma) + theme_bw()
-q <- q + xlab("Month") + ylab("Flight Status Ratios") + labs(title = "Flight Status by Ratio by Month from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
+q <- q + xlab("Month") + ylab("Flight Status Ratios") + labs(title = "Flight Status by Ratio by Month from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
 
 
 # Now we want to look at the causes for delay
@@ -127,7 +127,7 @@ carrierData$carriers <- factor(carrierData$carriers, levels=unique(carrierData$c
 carrierData <- carrierData[-24,]
 m <- ggplot(carrierData, aes(x = carrierData$carriers, delaysByCarrier))
 m <- m + geom_bar(stat = "identity") + scale_y_continuous(labels=comma) + theme(axis.text.x=element_text(angle=70, hjust=1))
-m <- m + xlab("Carriers") + ylab("Number of Delayed Flights") + labs(title = "Number of Delayed Flights by Airline from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
+m <- m + xlab("Carriers") + ylab("Number of Delayed Flights") + labs(title = "Number of Delayed Flights by Airline from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
 
 
 # Again, lets look at the same data in terms of frequency per flight to put all airlines on the same playing field
@@ -136,4 +136,4 @@ carrierData$normDelays <- carrierData$delaysByCarrier / carrierData$flightsByCar
 
 n <- ggplot(carrierData, aes(x = carrierData$carriers, normDelays))
 n <- n + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=70, hjust=1)) + scale_y_continuous(labels=comma) + geom_hline(yintercept = mean(carrierData$normDelays), color = "red")
-n <- n + xlab("Carriers") + ylab("Ratio of Delayed Flights") + labs(title = "Delayed Flights Ratio by Airline from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
+n <- n + xlab("Carriers") + ylab("Ratio of Delayed Flights") + labs(title = "Delayed Flights Ratio by Airline from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
