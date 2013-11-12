@@ -34,6 +34,10 @@ p <- ggplot(output, aes(x = Period, y = numFlights))
 pp <- p + geom_line(stat = "identity") + scale_x_date(labels = date_format("%m/%y")) + xlab("Month/Year") + ylab("Number of flights") + labs(title = "Number of Flights from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
 ppp <- pp + geom_vline(xintercept = 11540, color = 'red') + geom_vline(xintercept = 13740, color = 'red') + geom_vline(xintercept = 15000, color = 'blue') + geom_vline(xintercept = 14800, color = 'blue') + geom_vline(xintercept = 15150, color = 'blue') + geom_vline(xintercept = 15370, color = 'blue')
 
+# Plotting delays and cancellation over time.
+
+plotData <- melt(output, id = "Period")
+f <- ggplot(data = plotData, aes(x = Period, y = value, color = variable)) + geom_line()
 
 # Now we are going to look at the flights by month
 
