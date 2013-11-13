@@ -10,26 +10,8 @@ filepath = '/Users/mfdupuis/Documents/Kaggle/Python/flightData/'
 
 os.chdir(filepath)
 
-base = pd.read_csv('carriers.csv', usecols=['Code', 'Description'])
-base["Year"] = 0
-base["Month"] = 0
-base["CarrierID"] = base["Code"]
-base["CarrierName"] = base["Description"]
-base["Delays"] = 0
-base["Cancellations"] = 0
-base["NumFlights"] = 0
-base["CarrierDel"] = 0
-base["WeatherDel"] = 0
-base["NASDel"] = 0
-base["SecurityDel"] = 0
-base["LateAircraftDel"] = 0
-
-base.__delitem__("Code")
-base.__delitem__("Description")
-
 years = range(2013,2014)
 months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-months = ['01', '02', '03', '04', '05', '06', '07', '08']
 
 def extract_info():
     '''
@@ -76,7 +58,6 @@ def extract_info():
 delays = extract_info()
 delaysOutput = next(delays)
 
-print base[:10]
 print delaysOutput[:20]
 
 delaysOutput.to_csv('13_byState.csv', sep=',')
