@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  12 NOV 2013 20:17
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  12 NOV 2013 22:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -310,23 +310,7 @@ Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 \LTright=\skip73
 \flrow@types=\toks24
 )
-(./Report.aux
-
-LaTeX Warning: Label `fig:flowchart' multiply defined.
-
-
-LaTeX Warning: Label `fig:flowchart' multiply defined.
-
-
-LaTeX Warning: Label `fig:flowchart' multiply defined.
-
-
-LaTeX Warning: Label `fig:flowchart' multiply defined.
-
-
-LaTeX Warning: Label `fig:flowchart' multiply defined.
-
-)
+(./Report.aux)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
@@ -341,7 +325,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
- (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
+
+(/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count126
 \scratchdimen=\dimen143
@@ -450,45 +435,32 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 107.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-<Number_of_Flights1.png, id=10, 731.73375pt x 418.56375pt>
-File: Number_of_Flights1.png Graphic file (type png)
-
-<use Number_of_Flights1.png>
-Package pdftex.def Info: Number_of_Flights1.png used on input line 121.
-(pdftex.def)             Requested size: 426.79134pt x 244.1339pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
  Make it at least 23.02448pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] <Number_of_Flights2.png, id=21, 731.73375pt x 418.56375pt>
+[2] <Number_of_Flights2.png, id=19, 758.835pt x 538.01pt>
 File: Number_of_Flights2.png Graphic file (type png)
 
 <use Number_of_Flights2.png>
-Package pdftex.def Info: Number_of_Flights2.png used on input line 129.
-(pdftex.def)             Requested size: 455.24408pt x 260.40736pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Bar1.png, id=22, 731.73375pt x 418.56375pt>
+Package pdftex.def Info: Number_of_Flights2.png used on input line 124.
+(pdftex.def)             Requested size: 455.24408pt x 322.76744pt.
+ <Bar1.png, id=21, 731.73375pt x 418.56375pt>
 File: Bar1.png Graphic file (type png)
- <use Bar1.png>
-Package pdftex.def Info: Bar1.png used on input line 138.
+
+<use Bar1.png>
+Package pdftex.def Info: Bar1.png used on input line 132.
 (pdftex.def)             Requested size: 455.24408pt x 260.40736pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Bar2.png, id=23, 731.73375pt x 418.56375pt>
+<Bar2.png, id=22, 731.73375pt x 418.56375pt>
 File: Bar2.png Graphic file (type png)
  <use Bar2.png>
-Package pdftex.def Info: Bar2.png used on input line 144.
+Package pdftex.def Info: Bar2.png used on input line 138.
 (pdftex.def)             Requested size: 455.24408pt x 260.40736pt.
 
 
@@ -504,68 +476,45 @@ Package Fancyhdr Warning: \headheight is too small (13.6pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3 <./Number_of_Flights1.png>]
+[3 <./Number_of_Flights2.png>]
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
  Make it at least 23.02448pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4 <./Number_of_Flights2.png> <./Bar1.png>]
-<Pie.png, id=33, 1030.85126pt x 693.59125pt>
+[4 <./Bar1.png> <./Bar2.png>] <Pie.png, id=32, 1030.85126pt x 693.59125pt>
 File: Pie.png Graphic file (type png)
- <use Pie.png>
-Package pdftex.def Info: Pie.png used on input line 164.
+
+<use Pie.png>
+Package pdftex.def Info: Pie.png used on input line 158.
 (pdftex.def)             Requested size: 455.24408pt x 306.30292pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Delayed_by_Airline1.png, id=34, 825.0825pt x 558.085pt>
-File: Delayed_by_Airline1.png Graphic file (type png)
-
-<use Delayed_by_Airline1.png>
-Package pdftex.def Info: Delayed_by_Airline1.png used on input line 172.
-(pdftex.def)             Requested size: 455.24408pt x 307.927pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Delayed_by_Airline2.png, id=35, 825.0825pt x 558.085pt>
+ <Delayed_by_Airline2.png, id=33, 707.64375pt x 629.35126pt>
 File: Delayed_by_Airline2.png Graphic file (type png)
 
 <use Delayed_by_Airline2.png>
-Package pdftex.def Info: Delayed_by_Airline2.png used on input line 178.
-(pdftex.def)             Requested size: 455.24408pt x 307.927pt.
+Package pdftex.def Info: Delayed_by_Airline2.png used on input line 166.
+(pdftex.def)             Requested size: 455.24408pt x 404.8769pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Delays_by_State1.png, id=36, 1040.88875pt x 412.54124pt>
-File: Delays_by_State1.png Graphic file (type png)
 
-<use Delays_by_State1.png>
-Package pdftex.def Info: Delays_by_State1.png used on input line 184.
-(pdftex.def)             Requested size: 455.24408pt x 180.42969pt.
+Package Fancyhdr Warning: \headheight is too small (13.6pt): 
+ Make it at least 23.02448pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<USMap1.png, id=37, 719.68875pt x 536.0025pt>
-File: USMap1.png Graphic file (type png)
- <use USMap1.png>
-Package pdftex.def Info: USMap1.png used on input line 190.
-(pdftex.def)             Requested size: 455.24408pt x 339.06557pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Delays_by_State2.png, id=38, 1040.88875pt x 412.54124pt>
+[5 <./Pie.png>] <Delays_by_State2.png, id=38, 735.74875pt x 518.93875pt>
 File: Delays_by_State2.png Graphic file (type png)
 
 <use Delays_by_State2.png>
-Package pdftex.def Info: Delays_by_State2.png used on input line 196.
-(pdftex.def)             Requested size: 455.24408pt x 180.42969pt.
+Package pdftex.def Info: Delays_by_State2.png used on input line 174.
+(pdftex.def)             Requested size: 483.69684pt x 341.17035pt.
+
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 174--175
+ [][] 
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -573,8 +522,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <USMap2.png, id=39, 727.71875pt x 534.99875pt>
 File: USMap2.png Graphic file (type png)
  <use USMap2.png>
-Package pdftex.def Info: USMap2.png used on input line 202.
-(pdftex.def)             Requested size: 455.24408pt x 334.69176pt.
+Package pdftex.def Info: USMap2.png used on input line 180.
+(pdftex.def)             Requested size: 398.33858pt x 292.85428pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -585,68 +534,110 @@ Package Fancyhdr Warning: \headheight is too small (13.6pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5 <./Bar2.png>]
+[6 <./Delayed_by_Airline2.png>]
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
  Make it at least 23.02448pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./Pie.png>]
+[7 <./Delays_by_State2.png>]
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
  Make it at least 23.02448pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./Delayed_by_Airline1.png>]
+[8 <./USMap2.png>] <Number_of_Flights1.png, id=54, 731.73375pt x 418.56375pt>
+File: Number_of_Flights1.png Graphic file (type png)
+
+<use Number_of_Flights1.png>
+Package pdftex.def Info: Number_of_Flights1.png used on input line 204.
+(pdftex.def)             Requested size: 426.79134pt x 244.1339pt.
+
+<Delayed_by_Airline1.png, id=55, 825.0825pt x 558.085pt>
+File: Delayed_by_Airline1.png Graphic file (type png)
+
+<use Delayed_by_Airline1.png>
+Package pdftex.def Info: Delayed_by_Airline1.png used on input line 211.
+(pdftex.def)             Requested size: 455.24408pt x 307.927pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Delays_by_State1.png, id=56, 775.89874pt x 542.025pt>
+File: Delays_by_State1.png Graphic file (type png)
+
+<use Delays_by_State1.png>
+Package pdftex.def Info: Delays_by_State1.png used on input line 217.
+(pdftex.def)             Requested size: 455.24408pt x 318.03033pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<USMap1.png, id=57, 719.68875pt x 536.0025pt>
+File: USMap1.png Graphic file (type png)
+ <use USMap1.png>
+Package pdftex.def Info: USMap1.png used on input line 223.
+(pdftex.def)             Requested size: 455.24408pt x 339.06557pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
  Make it at least 23.02448pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <./Delayed_by_Airline2.png> <./Delays_by_State1.png>]
+[9
+
+ <./Number_of_Flights1.png>]
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
  Make it at least 23.02448pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9 <./USMap1.png> <./Delays_by_State2.png>]
+[10 <./Delayed_by_Airline1.png>]
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
  Make it at least 23.02448pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10 <./USMap2.png>] (./Report.aux)
+[11 <./Delays_by_State1.png>]
 
-LaTeX Warning: There were multiply-defined labels.
+Package Fancyhdr Warning: \headheight is too small (13.6pt): 
+ Make it at least 23.02448pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
- ) 
+[12 <./USMap1.png>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 5571 strings out of 493488
- 80985 string characters out of 3141326
- 154960 words of memory out of 3000000
- 8763 multiletter control sequences out of 15000+200000
+ 5576 strings out of 493488
+ 81104 string characters out of 3141326
+ 153964 words of memory out of 3000000
+ 8768 multiletter control sequences out of 15000+200000
  13333 words of font info for 50 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,11n,43p,1287b,393s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
-exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/te
-xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Report.pdf (10 pages, 576674 bytes).
+ 38i,11n,43p,1125b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsl10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmti10.pfb>
+Output written on Report.pdf (12 pages, 611660 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -36,8 +36,14 @@ r <- r + xlab("States") + ylab("Number of Delayed Flights") + labs(title = "Numb
 
 # Lets now look at the delays per flight to see if it balances out the distribution
 
+delays <- data.frame(states = states, delaysByState = delaysByState, delaysPerFlight = delaysPerFlight, stringsAsFactors = FALSE)
+delays <- delays[order(-delays[,3]),]
+rownames(delays) <- 1:nrow(delays)
+delays$states <- as.character(delays$states)
+delays$states <- factor(delays$states, levels=unique(delays$states), ordered=TRUE)
+
 z <- ggplot(delays, aes(x = delays$states, delaysPerFlight))
-z <- z + geom_bar(stat = "identity") + theme(axis.text.x=element_text(size = 10, hjust=1)) + scale_y_continuous(labels=comma) + geom_hline(yintercept = mean(delays$delaysPerFlight), color = "red")
+z <- z + geom_bar(stat = "identity") + theme(axis.text.x=element_text(size = 12, hjust=1, angle = 75)) + scale_y_continuous(labels=comma) + geom_hline(yintercept = mean(delays$delaysPerFlight), color = "red")
 z <- z + xlab("States") + ylab("Ratio of Delayed Flights") + labs(title = "Flights Ratio by State from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
 
 
