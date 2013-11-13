@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  12 NOV 2013 23:44
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  13 NOV 2013 10:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -446,29 +446,29 @@ File: Number_of_Flights2.png Graphic file (type png)
 
 <use Number_of_Flights2.png>
 Package pdftex.def Info: Number_of_Flights2.png used on input line 124.
-(pdftex.def)             Requested size: 455.24408pt x 322.76744pt.
- <Bar1.png, id=21, 731.73375pt x 418.56375pt>
-File: Bar1.png Graphic file (type png)
+(pdftex.def)             Requested size: 483.69684pt x 342.94604pt.
 
-<use Bar1.png>
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 124--125
+ [][] 
+ []
+
+<Bar1.png, id=21, 788.9475pt x 392.46625pt>
+File: Bar1.png Graphic file (type png)
+ <use Bar1.png>
 Package pdftex.def Info: Bar1.png used on input line 132.
-(pdftex.def)             Requested size: 455.24408pt x 260.40736pt.
+(pdftex.def)             Requested size: 455.24408pt x 226.4628pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Bar2.png, id=22, 731.73375pt x 418.56375pt>
+<Bar2.png, id=22, 788.9475pt x 392.46625pt>
 File: Bar2.png Graphic file (type png)
  <use Bar2.png>
 Package pdftex.def Info: Bar2.png used on input line 138.
-(pdftex.def)             Requested size: 455.24408pt x 260.40736pt.
+(pdftex.def)             Requested size: 455.24408pt x 226.4628pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
@@ -483,21 +483,18 @@ Package Fancyhdr Warning: \headheight is too small (13.6pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4 <./Bar1.png> <./Bar2.png>] <Pie.png, id=32, 1030.85126pt x 693.59125pt>
+[4 <./Bar1.png> <./Bar2.png>] <Pie.png, id=32, 735.74875pt x 518.93875pt>
 File: Pie.png Graphic file (type png)
 
 <use Pie.png>
-Package pdftex.def Info: Pie.png used on input line 158.
-(pdftex.def)             Requested size: 455.24408pt x 306.30292pt.
+Package pdftex.def Info: Pie.png used on input line 156.
+(pdftex.def)             Requested size: 455.24408pt x 321.10522pt.
  <Delayed_by_Airline2.png, id=33, 707.64375pt x 629.35126pt>
 File: Delayed_by_Airline2.png Graphic file (type png)
 
 <use Delayed_by_Airline2.png>
-Package pdftex.def Info: Delayed_by_Airline2.png used on input line 166.
+Package pdftex.def Info: Delayed_by_Airline2.png used on input line 164.
 (pdftex.def)             Requested size: 455.24408pt x 404.8769pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package Fancyhdr Warning: \headheight is too small (13.6pt): 
@@ -505,14 +502,16 @@ Package Fancyhdr Warning: \headheight is too small (13.6pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5 <./Pie.png>] <Delays_by_State2.png, id=38, 735.74875pt x 518.93875pt>
+[5
+
+ <./Pie.png>] <Delays_by_State2.png, id=38, 735.74875pt x 518.93875pt>
 File: Delays_by_State2.png Graphic file (type png)
 
 <use Delays_by_State2.png>
-Package pdftex.def Info: Delays_by_State2.png used on input line 174.
+Package pdftex.def Info: Delays_by_State2.png used on input line 172.
 (pdftex.def)             Requested size: 483.69684pt x 341.17035pt.
 
-Overfull \hbox (11.6656pt too wide) in paragraph at lines 174--175
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 172--173
  [][] 
  []
 
@@ -522,7 +521,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <USMap2.png, id=39, 727.71875pt x 534.99875pt>
 File: USMap2.png Graphic file (type png)
  <use USMap2.png>
-Package pdftex.def Info: USMap2.png used on input line 180.
+Package pdftex.def Info: USMap2.png used on input line 178.
 (pdftex.def)             Requested size: 398.33858pt x 292.85428pt.
 
 
@@ -552,14 +551,14 @@ Package Fancyhdr Warning: \headheight is too small (13.6pt):
 File: Number_of_Flights1.png Graphic file (type png)
 
 <use Number_of_Flights1.png>
-Package pdftex.def Info: Number_of_Flights1.png used on input line 204.
+Package pdftex.def Info: Number_of_Flights1.png used on input line 202.
 (pdftex.def)             Requested size: 426.79134pt x 244.1339pt.
 
 <Delayed_by_Airline1.png, id=55, 825.0825pt x 558.085pt>
 File: Delayed_by_Airline1.png Graphic file (type png)
 
 <use Delayed_by_Airline1.png>
-Package pdftex.def Info: Delayed_by_Airline1.png used on input line 211.
+Package pdftex.def Info: Delayed_by_Airline1.png used on input line 209.
 (pdftex.def)             Requested size: 455.24408pt x 307.927pt.
 
 
@@ -569,7 +568,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: Delays_by_State1.png Graphic file (type png)
 
 <use Delays_by_State1.png>
-Package pdftex.def Info: Delays_by_State1.png used on input line 217.
+Package pdftex.def Info: Delays_by_State1.png used on input line 215.
 (pdftex.def)             Requested size: 455.24408pt x 318.03033pt.
 
 
@@ -578,7 +577,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <USMap1.png, id=57, 719.68875pt x 536.0025pt>
 File: USMap1.png Graphic file (type png)
  <use USMap1.png>
-Package pdftex.def Info: USMap1.png used on input line 223.
+Package pdftex.def Info: USMap1.png used on input line 221.
 (pdftex.def)             Requested size: 455.24408pt x 339.06557pt.
 
 
@@ -617,11 +616,11 @@ Package Fancyhdr Warning: \headheight is too small (13.6pt):
 Here is how much of TeX's memory you used:
  5576 strings out of 493488
  81104 string characters out of 3141326
- 153964 words of memory out of 3000000
+ 153950 words of memory out of 3000000
  8768 multiletter control sequences out of 15000+200000
  13333 words of font info for 50 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,12n,43p,1124b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,11n,43p,1124b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2012/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
@@ -634,7 +633,7 @@ lic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
 sfonts/cm/cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsl10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb>
-Output written on Report.pdf (12 pages, 611568 bytes).
+Output written on Report.pdf (12 pages, 607866 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream

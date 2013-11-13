@@ -31,7 +31,7 @@
 %\fancyhead[RE]{\iffloatpage{}{{\small \textbf{\nouppercase \leftmark}}}}
 %\fancyhead[LO]{\iffloatpage{}{\small \rightmark}}
 %\renewcommand{\headrulewidth}{\iffloatpage{0pt}{0.4pt}}
-\fancyhead[LE,RO]{\small{\textit{Imperial College London\\Biomedical Eng. Dept.}}}
+\fancyhead[LE,RO]{\small{\textit{Seed Scientific\\Candidate Assignment 1}}}
 \cfoot{\thepage}
 
 \setlength{\headheight}{13.6pt}
@@ -121,11 +121,11 @@ Now that we've seen how the number of flights has evolved over the past 13 years
 
 \begin{figure}[h!]
         \centering
-                \includegraphics[width=16cm]{Number_of_Flights2.png}
-        \caption{Flights, delays and cancellations from 2000 to 2013. The red lines indicate major events affecting the number of flights while the blue lines highly yearly trends.}\label{fig:Number of Flights + Delays}
+                \includegraphics[width=17cm]{Number_of_Flights2.png}
+        \caption{Flights, delays and cancellations from 2000 to 2013. The red lines indicate major events affecting the number of flights while the blue lines highlight yearly trends.}\label{fig:Number of Flights + Delays}
 \end{figure}
 
-Following the observations marked by the blue lines in Fig. \ref{fig:Number of Flights + Delays}, it would be interesting to look at the number of flights and delays by month (Fig. \ref{fig:Flights by Month}) The bar graph seems to support the idea of an increase of flights in the summer and a drop at the end of each year. However, the delays by month would be better expressed as a percentage of total flights. This is done in Fig. \ref{fig:Flights by Month Percentage}. This bar graph seems to suggest that delays are rather steady with a slight increase around the summer period and Christmas holidays.
+Following the observations marked by the blue lines in Fig. \ref{fig:Number of Flights + Delays}, it would be interesting to look at the number of flights and delays by month (Fig. \ref{fig:Flights by Month}) The bar graph seems to support the idea of an increase of flights in the summer and a drop at the end of each year. However, the delays by month would be better expressed as a percentage of total flights. This is illustrated in Fig. \ref{fig:Flights by Month Percentage}. This bar graph seems to suggest that delays are rather steady with a slight increase around the summer period and Christmas holidays.
 
 \begin{figure}[h!]
         \centering
@@ -136,13 +136,11 @@ Following the observations marked by the blue lines in Fig. \ref{fig:Number of F
 \begin{figure}[h!]
         \centering
                 \includegraphics[width=16cm]{Bar2.png}
-        \caption{Delays by month expressed as a percentage of total flights each month.}\label{fig:Flights by Month Percentage}
+        \caption{Average number of flights by month expressed as a percentage of total flights each month.}\label{fig:Flights by Month Percentage}
 \end{figure}
 
-\break
-
+\clearpage
 Now that we understand more about flight trends and delays/cancellations, it would be interesting to look at the causes of delays. Fig. \ref{fig:Pie} breaks up the causes of delays into five categories:
-
 \begin{enumerate}\itemsep1pt \parskip0pt \parsep0pt
   \item Late aircraft
   \item National Airspace System (NAS) delay
@@ -164,7 +162,7 @@ Now lets look at the delays by carrier relative to the total number of flights a
 \begin{figure}[h!]
         \centering
                 \includegraphics[width=16cm]{Delayed_by_Airline2.png}
-        \caption{Delay-to-flight ratio by carrier.}\label{fig:Delays by Carrier as Percentage}
+        \caption{Delay-to-flight ratio by carrier. The red line indicates the mean of all ratios by carrier.}\label{fig:Delays by Carrier as Percentage}
 \end{figure}
 
 So we now know which airlines to avoid in terms of departure reliability and which to recommend. Lets now look at the relationship between delays and departure state. Fig. \ref{fig:Delays by State as Percentage} shows a fairly spread out distribution amongst all fifty states, Puerto Rico (PR), the Trusted Territories (TT) and the U.S. Virgin Islands (VI). As with the delays by carrier, we should look at this data relative to the number of flights departing from each of these states (Fig. \ref{fig:Delays by State as Percentage}). The best performers turn out to be Hawaii, Montana and Idaho. On the other hand, the worst performing states are the Trusted Territories, Illinois, New Jersey and Delaware (as illustrated in Fig. \ref{fig:USMap2}.) 
@@ -172,7 +170,7 @@ So we now know which airlines to avoid in terms of departure reliability and whi
 \begin{figure}[h!]
         \centering
                 \includegraphics[width=17cm]{Delays_by_State2.png}
-        \caption{Delay-to-flight ratio by state.}\label{fig:Delays by State as Percentage}
+        \caption{Delay-to-flight ratio by state. The red line indicates the mean of all ratios by state.}\label{fig:Delays by State as Percentage}
 \end{figure}
 
 \begin{figure}[h!]
@@ -181,15 +179,15 @@ So we now know which airlines to avoid in terms of departure reliability and whi
         \caption{Heatmap illustrating the delay-to-flight ratio for each state on the continent with Montana and Illinois on opposite ends of the spectrum.}\label{fig:USMap2}
 \end{figure}
 
-Finally, given the correlations that seems to exist between flight delay and carrier, month and departure state, if there is a significant connection between these features, a classifier should outperform random chance. Indeed, by applying a random forest, we can successfully determine whether or not a flight will be delayed with a $80.16\%$ success rate\footnote{Additional features used to the ones mentioned are arrival state and distance between departure and arrival states, and many more can and should be looked into. The classifier is also based on a significantly reduced dataset composed of $6.25\%$ of the available data.}. However, the Receiver Operator Characteristic (ROC) curve has an area of 0.607, which indicates that the classifier performs better than a random guess, but is not highly reliable.
+Finally, given the correlations that seems to exist between flight delay and carrier, month and departure state, if there is a significant connection between these features, a classifier should outperform random chance. Indeed, by applying a random forest, we can successfully determine whether or not a flight will be delayed with a $80.16\%$ success rate\footnote{Additional features used to the ones mentioned are arrival state and distance between departure and arrival states, and many more can and should be looked into. The classifier is also based on a significantly reduced dataset composed of $6.25\%$ of the available data due to limited memory availability.}; however, the Receiver Operator Characteristic (ROC) curve has an area of 0.607, which indicates that the classifier performs better than a random guess, but is not highly reliable.
 
 \section{Conclusion}
 
 There are several conclusions to draw from this investigation. First, as expected, customers flight patterns are affected by major disasters and the state of the economy. Preliminary indications seem to suggest that delays have not been increasing relative to the number of flights over the years and flight cancellations are relatively constant across time (aside from major disasters).
 
-Second, delays are to be expected around the high traffic months during the summer as well as during the holiday season in December (we know how hard it can be to make it home for Christmas). However, the cause for delays is equally due to late aircrafts, carriers and NAS orders. It is difficult to truly assess the cause of a delay in the system. For instance, a late aircraft could be caused by weather in the state it came from or the carrier.
+Second, delays are to be expected around the high traffic months during the summer as well as during the holiday season in December (we know how hard it can be to make it home for Christmas); however, the cause for delays is equally due to late aircrafts, carriers and NAS orders. It is difficult to truly assess the cause of a delay in the system. For instance, a late aircraft could be caused by weather in the state it came from or the carrier.
 
-Finally, the scenario in which a passenger is least likely to experience a flight delay is by travelling from Hawaii on Hawaiian Airlines in September\footnote{It's obviously not this straight forward as there are other important factors such as weather, human and natural disasters, day of the weak etc.}. Similarly, a passenger is most likely to experience a delay if they travel at Christmas and they depart from Chicago with Southwest Airlines.
+Finally, the scenario in which a passenger is least likely to experience any flight delay, is by travelling from Hawaii on Hawaiian Airlines in September\footnote{It's obviously not this straight forward as there are other important factors such as weather, human and natural disasters, day of the weak etc. And the delays should be considered by restricted geographical location.}. Similarly, a passenger is most likely to experience a delay if they travel at Christmas and they depart from Chicago with Southwest Airlines.
 
 This study is very limited and is based on a number of assumptions which would have to be carefully considered in future investigations. The intent is to offer an initial perspective on flight patterns in the US and flight delay trends.
 
@@ -209,7 +207,7 @@ This study is very limited and is based on a number of assumptions which would h
 \begin{figure}[h!]
         \centering
                 \includegraphics[width=16cm]{Delayed_by_Airline1.png}
-        \caption{Total delays by carrier since January 2000. Southwest has over twice the amount as the carrier ranked by number of delays.}\label{fig:Delays by Carrier}
+        \caption{Total delays by carrier since January 2000. Southwest Airlines has over twice the amount as the second carrier ranked by number of delays.}\label{fig:Delays by Carrier}
 \end{figure}
 
 \begin{figure}[h!]
