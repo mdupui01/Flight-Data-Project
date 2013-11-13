@@ -1,7 +1,9 @@
+# Short script to put together the csv files to then process them in weka.
 
 setwd('/Users/mfdupuis/Documents/Kaggle/Python/flightData/')
 data2012 <- read.csv('2012data_Weka.csv')
 
+# The data needs to be cleaned just a bit.
 wekaData <- data2012
 wekaData$X <- NULL
 wekaData$UNIQUE_CARRIER <- as.numeric(wekaData$UNIQUE_CARRIER)

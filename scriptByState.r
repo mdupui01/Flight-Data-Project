@@ -1,3 +1,5 @@
+# Script similar to the "script.r". Simply orgnanizing the data by state rather than carrier.
+
 library("ggplot2")
 library("scales")
 library(maps)
@@ -20,6 +22,7 @@ for (state in states){
   i = i + 1
 }
 
+# Now that we have all the data by state we need to put everyhting in a data frame.
 delaysByState <- as.numeric(delaysByState)
 flightsByStates <- as.numeric(flightsByState)
 delaysPerFlight <- delaysByState/flightsByStates
@@ -30,7 +33,7 @@ rownames(delays) <- 1:nrow(delays)
 delays$states <- as.character(delays$states)
 delays$states <- factor(delays$states, levels=unique(delays$states), ordered=TRUE)
 r <- ggplot(delays, aes(x = delays$states, delaysByState))
-r <- r + geom_bar(stat = "identity") + theme(axis.text.x=element_text(size = 10, hjust=1)) + scale_y_continuous(labels=comma)
+r <- r + geom_bar(stat = "identity") + theme(axis.text.x=element_text(size = 12, hjust=1, angle = 75)) + scale_y_continuous(labels=comma)
 r <- r + xlab("States") + ylab("Number of Delayed Flights") + labs(title = "Number of Delayed Flights by State from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
 
 
@@ -44,7 +47,7 @@ delays$states <- factor(delays$states, levels=unique(delays$states), ordered=TRU
 
 z <- ggplot(delays, aes(x = delays$states, delaysPerFlight))
 z <- z + geom_bar(stat = "identity") + theme(axis.text.x=element_text(size = 12, hjust=1, angle = 75)) + scale_y_continuous(labels=comma) + geom_hline(yintercept = mean(delays$delaysPerFlight), color = "red")
-z <- z + xlab("States") + ylab("Ratio of Delayed Flights") + labs(title = "Flights Ratio by State from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
+z <- z + xlab("States") + ylab("Ratio of Delayed Flights") + labs(title = "Delays-to-Flight Ratio by State from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
 
 
 # Creating a heatmap of the US for number of delays

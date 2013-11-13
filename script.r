@@ -1,10 +1,11 @@
+# Script to organize the data created in Python by carrier.
+
 library("ggplot2")
 library("scales")
 library("reshape2")
 graphics.off()
 
 setwd('/Users/mfdupuis/Documents/Kaggle/Python/Flight-Data-Project/')
-
 data <- read.csv('byCarrier.csv')
 
 i <- 1
@@ -21,18 +22,20 @@ for (year in 2000:2013){
   }
 }
 
+# Putting all the data in data frames.
 temp <- as.numeric(unlist(numFlights))
 numDelays <- as.numeric(unlist(numDelays))
 numCancels <- as.numeric(unlist(numCancels))
 
+# Make sure to organize the dates as dates in the data frame.
 output <- cbind(seq(as.Date("2000-01-01"), as.Date("2013-07-01"), by="month"),temp[1:163], numDelays[1:163], numCancels[1:163])
 colnames(output) <- c("Period", "All_Flights", "Delayed", "Cancelled")
 output <- data.frame(output)
 output$Period <- seq(as.Date("2000-01-01"), as.Date("2013-07-01"), by = "month")
 
 p <- ggplot(output, aes(x = Period, y = All_Flights))
-pp <- p + geom_line(stat = "identity") + scale_x_date(labels = date_format("%m/%y")) + xlab("Month/Year") + ylab("Number of flights") + labs(title = "Number of Flights from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_y_continuous(labels=comma)
-ppp <- pp + geom_vline(xintercept = 11540, color = 'red') + geom_vline(xintercept = 13740, color = 'red') + geom_vline(xintercept = 15000, color = 'blue') + geom_vline(xintercept = 14800, color = 'blue') + geom_vline(xintercept = 15150, color = 'blue') + geom_vline(xintercept = 15370, color = 'blue')
+p <- p + geom_line(stat = "identity") + scale_x_date(labels = date_format("%m/%y")) + xlab("Month/Year") + ylab("Number of flights") + labs(title = "Number of Flights from Sep-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_y_continuous(labels=comma)
+p <- p + geom_vline(xintercept = 11540, color = 'red') + geom_vline(xintercept = 13740, color = 'red') + geom_vline(xintercept = 15000, color = 'blue') + geom_vline(xintercept = 14800, color = 'blue') + geom_vline(xintercept = 15150, color = 'blue') + geom_vline(xintercept = 15370, color = 'blue')
 
 # Plotting delays and cancellation over time.
 
@@ -68,8 +71,9 @@ monthlyData$Month <- seq(as.Date("2000-01-01"), as.Date("2000-12-01"), by = "mon
 monthlyData.m <- melt(monthlyData,id.vars='Month',measure.vars=c('Delayed', 'Cancelled', 'On_Time'))
 colnames(monthlyData.m) <- c("Month", "Status", "Value")
 
-c <- ggplot(monthlyData.m) + geom_bar(aes(Month,Value,fill=Status), stat = "identity") + scale_y_continuous(labels = comma) + theme_bw()
-c <- c + xlab("Month") + ylab("Number of Flights") + labs(title = "Number of Flights by Month from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
+nums <- c(13, 13, 13, 13, 13, 13, 13, 13, 13, 12, 12, 12)
+c <- ggplot(monthlyData.m) + geom_bar(aes(Month,Value/nums,fill=Status), stat = "identity") + scale_y_continuous(labels = comma) + theme_bw()
+c <- c + xlab("Month") + ylab("Average Number of Flights") + labs(title = "Average number of Flights by Month from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
 
 # The information in the previous graph on the number of delays and cancellations per month isn't particularly interesting if it's not expressed as a percentage.
 
@@ -84,7 +88,7 @@ monthlyData.m_norm <- melt(monthlyData_norm,id.vars='Month',measure.vars=c('Dela
 colnames(monthlyData.m_norm) <- c("Month", "Status", "Value")
 
 q <- ggplot(monthlyData.m_norm) + geom_bar(aes(Month,Value,fill=Status), stat = "identity") + scale_y_continuous(labels = comma) + theme_bw()
-q <- q + xlab("Month") + ylab("Flight Status Ratios") + labs(title = "Flight Status by Ratio by Month from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
+q <- q + xlab("Month") + ylab("Delay-to-Flights Ratio") + labs(title = "Flight Status by Ratio by Month from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_x_date(labels = date_format("%m"))
 
 
 # Now we want to look at the causes for delay
@@ -95,7 +99,7 @@ pieData <- colSums(tempdf)
 pieData <- pieData[-c(1, 2, 4, 6, 8, 11)]
 
 slices <- pieData
-lbls <- c("Carrier", "Late Aircraft", "NAS", "Security", "Weather")
+lbls <- c("Carrier Delay", "Late Aircraft Delay", "NAS Mandated Delay", "Security Delay", "Weather Delay")
 pie(slices, labels = lbls, main="Causes of Delay")
 
 
@@ -143,4 +147,4 @@ carrierData <- carrierData[-24,]
 
 n <- ggplot(carrierData, aes(x = carrierData$carriers, normDelays))
 n <- n + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=70, hjust=1)) + scale_y_continuous(labels=comma) + geom_hline(yintercept = mean(carrierData$normDelays), color = "red")
-n <- n + xlab("Carriers") + ylab("Ratio of Delayed Flights") + labs(title = "Delayed Flights Ratio by Airline from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
+n <- n + xlab("Carriers") + ylab("Ratio of Delayed Flights") + labs(title = "Delays-to-Flight Ratio by Airline from Jan-2000 to Aug-2013") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold"))
