@@ -40,6 +40,7 @@ plotData <- melt(output, id = "Period")
 colnames(plotData) <- c("Period", "Status", "Value")
 f <- ggplot(data = plotData, aes(x = Period, y = Value, color = Status)) + geom_line()
 f <- f + xlab("Month/Year") + ylab("Number of Flights") + labs(title = "Number of Flights, Delays and Cancellations") + theme(axis.text=element_text(size=16, face = "bold"), title=element_text(size=16,face="bold")) + scale_y_continuous(labels=comma) + scale_x_date(labels = date_format("%m/%y"))
+f <- f + geom_vline(xintercept = 11540, color = 'red') + geom_vline(xintercept = 13740, color = 'red') + geom_vline(xintercept = 15000, color = 'blue') + geom_vline(xintercept = 14800, color = 'blue') + geom_vline(xintercept = 15150, color = 'blue') + geom_vline(xintercept = 15370, color = 'blue')
 
 # Now we are going to look at the flights by month
 
@@ -132,7 +133,13 @@ m <- m + xlab("Carriers") + ylab("Number of Delayed Flights") + labs(title = "Nu
 
 # Again, lets look at the same data in terms of frequency per flight to put all airlines on the same playing field
 
+carrierData <- data.frame(carriers, flightsByCarrier, delaysByCarrier, cancelsByCarrier, stringsAsFactors = FALSE)
 carrierData$normDelays <- carrierData$delaysByCarrier / carrierData$flightsByCarrier
+carrierData <- carrierData[order(-carrierData[,5]),]
+rownames(carrierData) <- 1:nrow(carrierData)
+carrierData$carriers <- as.character(carrierData$carriers)
+carrierData$carriers <- factor(carrierData$carriers, levels=unique(carrierData$carriers), ordered=TRUE)
+carrierData <- carrierData[-24,]
 
 n <- ggplot(carrierData, aes(x = carrierData$carriers, normDelays))
 n <- n + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=70, hjust=1)) + scale_y_continuous(labels=comma) + geom_hline(yintercept = mean(carrierData$normDelays), color = "red")
